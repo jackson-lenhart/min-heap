@@ -4,17 +4,40 @@ const assert = require('assert');
 
 const MinHeap = require('./min-heap');
 
+const mh = new MinHeap();
+
 const tests = [
   {
     title: 'Handles the undefined case',
     assertion: function() {
-      assert.deepStrictEqual(new MinHeap().heap, [-Infinity])
+      assert.deepStrictEqual(mh.heap, [-Infinity]);
     }
   },
   {
     title: 'Prepends -Infinity to given array',
     assertion: function() {
-      assert.deepStrictEqual(new MinHeap([1, 2, 3]).heap, [-Infinity, 1, 2, 3])
+      assert.deepStrictEqual(new MinHeap([1, 2, 3]).heap, [-Infinity, 1, 2, 3]);
+    }
+  },
+  {
+    title: 'Inserts 50 into empty heap',
+    assertion: function() {
+      mh.insert(50);
+      assert.deepStrictEqual(mh.heap, [-Infinity, 50]);
+    }
+  },
+  {
+    title: 'Inserts 65 into heap',
+    assertion: function() {
+      mh.insert(65);
+      assert.deepStrictEqual(mh.heap, [-Infinity, 50, 65]);
+    }
+  },
+  {
+    title: 'Inserts 14 into heap and performs swap',
+    assertion: function() {
+      mh.insert(14);
+      assert.deepStrictEqual(mh.heap, [-Infinity, 14, 65, 50]);
     }
   }
 ];
