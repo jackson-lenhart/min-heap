@@ -1,21 +1,16 @@
 'use strict';
 
+const { heapify } = require('./utils');
+
 class MinHeap {
   constructor(arr) {
     this.heap = [-Infinity].concat(arr || []);
+    heapify(1, this.heap);
   }
 
   insert(value) {
     this.heap.push(value);
-    const index = this.heap.length - 1;
-    const parentIndex = Math.floor(index / 2);
-
-    // perform swap if necessary
-    if (this.heap[index] < this.heap[parentIndex]) {
-      const temp = this.heap[parentIndex];
-      this.heap[index] = this.heap[parentIndex];
-      this.heap[parentIndex] = value;
-    }
+    heapify(1, this.heap);
   }
 }
 

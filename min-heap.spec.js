@@ -27,17 +27,24 @@ const tests = [
     }
   },
   {
-    title: 'Inserts 65 into heap',
+    title: 'Inserts 40 into heap',
     assertion: function() {
-      mh.insert(65);
-      assert.deepStrictEqual(mh.heap, [-Infinity, 50, 65]);
+      mh.insert(40);
+      assert.deepStrictEqual(mh.heap, [-Infinity, 40, 50]);
     }
   },
   {
     title: 'Inserts 14 into heap and performs swap',
     assertion: function() {
       mh.insert(14);
-      assert.deepStrictEqual(mh.heap, [-Infinity, 14, 65, 50]);
+      assert.deepStrictEqual(mh.heap, [-Infinity, 14, 50, 40]);
+    }
+  },
+  {
+    title: 'Inserts 100 into heap',
+    assertion: function() {
+      mh.insert(100);
+      assert.deepStrictEqual(mh.heap, [-Infinity, 14, 50, 40, 100]);
     }
   }
 ];
