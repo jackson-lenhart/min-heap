@@ -46,6 +46,20 @@ const tests = [
       mh.insert(100);
       assert.deepStrictEqual(mh.heap, [-Infinity, 14, 50, 40, 100]);
     }
+  },
+  {
+    title: 'Removes 14 (at index 1) from heap',
+    assertion: function() {
+      mh.remove(1);
+      assert.deepStrictEqual(mh.heap, [-Infinity, 40, 50, 100]);
+    }
+  },
+  {
+    title: 'Updates index 3 (100) to be 300',
+    assertion: function() {
+      mh.update(3, 300);
+      assert.deepStrictEqual(mh.heap, [-Infinity, 40, 50, 300]);
+    }
   }
 ];
 

@@ -1,6 +1,6 @@
 'use strict';
 
-function heapify(i, arr) {
+function minHeapify(i, arr) {
   if (i < 1) {
     return;
   }
@@ -24,7 +24,7 @@ function heapify(i, arr) {
 
   if (mi !== i) {
     swap(arr, mi, i);
-    heapify(mi, arr);
+    minHeapify(mi, arr);
   }
 }
 
@@ -32,6 +32,4 @@ function swap(arr, i, j) {
   [arr[i], arr[j]] = [arr[j], arr[i]];
 }
 
-module.exports = {
-  heapify
-};
+module.exports = minHeapify;
