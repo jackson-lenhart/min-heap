@@ -21,10 +21,11 @@ class MinHeap {
     this.heapify();
   }
 
-  removeMin() {
+  extractMin() {
     swap(this.heap, 1, this.heap.length - 1);
-    this.heap.splice(-1, 1);
+    const min = this.heap.splice(-1, 1)[0];
     this.heapify();
+    return min;
   }
 
   remove(index) {
@@ -37,6 +38,14 @@ class MinHeap {
       this.heap[index] = value;
       this.heapify();
     }
+  }
+
+  size() {
+    return this.heap.length;
+  }
+
+  notEmpty() {
+    return this.heap.length > 1;
   }
 }
 

@@ -2,7 +2,7 @@
 
 const assert = require('assert');
 
-const MinHeap = require('./min-heap');
+const MinHeap = require('./main');
 
 const mh = new MinHeap();
 
@@ -62,10 +62,9 @@ const tests = [
     }
   },
   {
-    title: 'Removes min',
+    title: 'Extracts min',
     assertion: function() {
-      mh.removeMin();
-      assert.deepStrictEqual(mh.heap, [-Infinity, 50, 300]);
+      assert.deepStrictEqual(mh.extractMin(), 40);
     }
   }
 ];
