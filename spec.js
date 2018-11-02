@@ -60,6 +60,13 @@ const tests = [
       mh.update(3, 300);
       assert.deepStrictEqual(mh.heap, [-Infinity, 40, 50, 300]);
     }
+  },
+  {
+    title: 'Removes min',
+    assertion: function() {
+      mh.removeMin();
+      assert.deepStrictEqual(mh.heap, [-Infinity, 50, 300]);
+    }
   }
 ];
 

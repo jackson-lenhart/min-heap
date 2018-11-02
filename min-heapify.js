@@ -1,5 +1,7 @@
 'use strict';
 
+const { swap } = require('./utils');
+
 function minHeapify(i, arr) {
   if (i < 1) {
     return;
@@ -26,10 +28,6 @@ function minHeapify(i, arr) {
     swap(arr, mi, i);
     minHeapify(mi, arr);
   }
-}
-
-function swap(arr, i, j) {
-  [arr[i], arr[j]] = [arr[j], arr[i]];
 }
 
 module.exports = minHeapify;
